@@ -1,20 +1,18 @@
-name: express-getting-started
-# The region where the application will be deployed. Available regions: us-east-1, eu-central-1
-region: us-east-1
-yamlVersion: 2
 backend:
-  # The root directory of the backend.
-  path: ./
-  language:
-    name: js
-    packageManager: npm
-  scripts:
-    deploy:
-      - npm install
-  functions:
-    - name: express-getting-started-function
-      path: ./
-      type: aws
-      handler: handler
-      entry: index.mjs
-  cloudProvider: genezio-cloud
+    cloudProvider: genezio-cloud
+    functions:
+        - entry: index.mjs
+          handler: handler
+          name: express-getting-started-function
+          path: ./
+          type: aws
+    language:
+        name: js
+        packageManager: npm
+    path: ./
+    scripts:
+        deploy:
+            - npm install
+name: server
+region: eu-central-1
+yamlVersion: 2
